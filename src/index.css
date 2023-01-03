@@ -1,13 +1,163 @@
-body {
-  margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
+/* 
+----------- INDEX -----------
+* Custom properties  [#CUST]
+* Global resets      [#GRES]
+* Layout             [#LAYO] 
+* Typography         [#TYPO]  
+* Utility classes    [#UTIL]        
+-----------------------------
+*/
+
+/*  -----------------------------------
+      Custom properties  [#CUST]        
+-----------------------------------  */
+
+:root {
+  /* Palette */
+  --color-black: hsl(0, 0%, 5%);
+  --color-white: hsl(0, 0%, 99%);
+  --color-accent: deeppink;
+  --color-accent--light: hsl(328, 100%, 70%);
+
+  /* Elements colors */
+  --color-text: var(--color-black);
+
+  --color-link: var(--color-accent);
+  --color-link--hover: var(--color-accent--light);
+
+  --color-background: var(--color-white);
+  --color-main-background: var(--color-white);
+
+  /* Layout */
+  --page-padding: 2rem 40px;
+  --page-margin: 0 auto;
+
+  /*
+    1366px * 768px
+  */
+  --page-width: 1366px;
+  --text-width: 40rem;
+
+  /* Typography */
+
+  /* Base font size become 18px */
+  font-size: 112.5%;
+  --font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+/*  -----------------------------------
+      Global resets [#GRES]        
+-----------------------------------  */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+* {
+  margin: 0;
+  overflow-wrap: break-word;
+  /* hyphens: auto; */
+}
+
+html,
+body {
+  height: 100%;
+}
+
+img,
+picture,
+video,
+canvas,
+svg {
+  display: block;
+  max-width: 100%;
+}
+
+/*  -----------------------------------
+      Layout  [#LAYO]         
+-----------------------------------  */
+
+main {
+  max-width: var(--page-width);
+  background-color: var(--color-main-background);
+  padding: var(--page-padding);
+  margin: var(--page-margin);
+}
+
+/*  -----------------------------------
+      Typography  [#TYPO]         
+-----------------------------------  */
+
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  accent-color: var(--color-accent);
+  font-family: var(--font-family);
+  /* for MACs */
+  -webkit-font-smoothing: antialiased;
+
+  line-height: 1.5;
+  font-size: 1rem;
+}
+
+input,
+button,
+textarea,
+select {
+  font: inherit;
+}
+
+a {
+  color: var(--color-link);
+}
+
+a:hover {
+  color: var(--color-link--hover);
+}
+
+h1 {
+  letter-spacing: -0.04rem;
+  padding-bottom: 0.2em;
+}
+
+h2 {
+  letter-spacing: -0.03rem;
+  padding-bottom: 0.4em;
+}
+
+h3 {
+  letter-spacing: -0.02rem;
+}
+
+p {
+  max-width: var(--text-width);
+  padding-bottom: 1em;
+}
+
+p:last-child {
+  padding-bottom: 0;
+}
+
+/* 
+em {}
+strong {} 
+*/
+
+/*  -----------------------------------
+      Utility classes [#UTIL]        
+-----------------------------------  */
+
+/* To hide something, but not to screen readers */
+
+.visuallyHidden {
+  position: absolute;
+  overflow: hidden;
+  clip: rect(0 0 0 0);
+  height: 1px;
+  width: 1px;
+  margin: -1px;
+  padding: 0;
+  border: 0;
 }

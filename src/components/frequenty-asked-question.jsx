@@ -1,7 +1,6 @@
 import * as React from 'react';
 import styled from 'styled-components/macro';
 
-
 function FrequentlyAskedQuestion({
     question,
     answer,
@@ -19,7 +18,6 @@ function FrequentlyAskedQuestion({
 const Faq = styled.details`
         font-size: 1rem;
         color: hsl(0deg 0% 25%);
-        margin: 32px;
         border: 2px solid;
         border-radius: 4px;
     `;
