@@ -1,23 +1,15 @@
-import logo from './logo.svg';
 import './App.css';
+import Quote from './components/quote';
+import FrequentlyAskedQuestion from './components/frequenty-asked-question';
 
 function App() {
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+        <Quote by='Artax' source='#' children='Bable bala ble cle'></Quote>
+        <FrequentlyAskedQuestion
+      question="What does “CSS” stand for?"
+      answer="Cool Styling Strategy"
+    />
     </div>
   );
 }
