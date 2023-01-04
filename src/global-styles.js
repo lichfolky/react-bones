@@ -1,7 +1,10 @@
+import { createGlobalStyle } from 'styled-components';
+
+const GlobalStyles = createGlobalStyle`
 /* 
 ----------- INDEX -----------
 * Custom properties  [#CUST]
-* Global resets      [#GRES]
+* Global styles      [#GRES]
 * Layout             [#LAYO] 
 * Typography         [#TYPO]  
 * Utility classes    [#UTIL]        
@@ -16,6 +19,7 @@
   /* Palette */
   --color-black: hsl(0, 0%, 5%);
   --color-white: hsl(0, 0%, 99%);
+
   --color-accent: deeppink;
   --color-accent--light: hsl(328, 100%, 70%);
 
@@ -40,44 +44,61 @@
 
   /* Typography */
 
-  /* Base font size become 18px */
-  font-size: 112.5%;
-  --font-family: Georgia, 'Times New Roman', Times, serif;
+   font-size: 100%;
+  --font-family: Roboto, sans-serif;
 }
 
 /*  -----------------------------------
-      Global resets [#GRES]        
+      Global styles [#GRES]        
 -----------------------------------  */
-
+/*
+  Use a more-intuitive box-sizing model.
+*/
 *,
 *::before,
 *::after {
   box-sizing: border-box;
 }
 
+/*
+  Remove default margin
+*/
 * {
   margin: 0;
-  overflow-wrap: break-word;
-  /* hyphens: auto; */
 }
 
+/*
+  Allow percentage-based heights in the application
+*/
 html,
 body {
   height: 100%;
 }
 
+/*
+  Improve media defaults (svg?)
+*/
 img,
 picture,
 video,
-canvas,
-svg {
+canvas {
   display: block;
   max-width: 100%;
+}
+
+
+/*
+  Create a root stacking context
+*/
+#root,
+#__next {
+  isolation: isolate;
 }
 
 /*  -----------------------------------
       Layout  [#LAYO]         
 -----------------------------------  */
+
 
 main {
   max-width: var(--page-width);
@@ -95,13 +116,14 @@ body {
   color: var(--color-text);
   accent-color: var(--color-accent);
   font-family: var(--font-family);
-  /* for MACs */
-  -webkit-font-smoothing: antialiased;
 
   line-height: 1.5;
-  font-size: 1rem;
+  -webkit-font-smoothing: antialiased;
 }
 
+/*
+  Remove built-in form typography styles
+*/
 input,
 button,
 textarea,
@@ -109,41 +131,18 @@ select {
   font: inherit;
 }
 
-a {
-  color: var(--color-link);
-}
-
-a:hover {
-  color: var(--color-link--hover);
-}
-
-h1 {
-  letter-spacing: -0.04rem;
-  padding-bottom: 0.2em;
-}
-
-h2 {
-  letter-spacing: -0.03rem;
-  padding-bottom: 0.4em;
-}
-
-h3 {
-  letter-spacing: -0.02rem;
-}
-
-p {
-  max-width: var(--text-width);
-  padding-bottom: 1em;
-}
-
-p:last-child {
-  padding-bottom: 0;
-}
-
-/* 
-em {}
-strong {} 
+/*
+  Avoid text overflows
 */
+p,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  overflow-wrap: break-word;
+}
 
 /*  -----------------------------------
       Utility classes [#UTIL]        
@@ -161,3 +160,6 @@ strong {}
   padding: 0;
   border: 0;
 }
+`;
+
+export default GlobalStyles;

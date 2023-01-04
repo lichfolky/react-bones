@@ -25,3 +25,9 @@ import styled from 'styled-components';
 // ...to this:
 import styled from 'styled-components/macro'
 ```
+
+## React Feather Icons 
+from https://github.com/feathericons/react-feather
+```
+npm i react-feather
+```
